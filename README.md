@@ -1,2 +1,0 @@
-# RAG HEALTH AI 
-
