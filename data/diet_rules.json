@@ -1,0 +1,67 @@
+{
+  "anemia": {
+    "display_name": "Anemia (Low Hemoglobin)",
+    "diet": ["Eat iron-rich foods: spinach, beetroot, dates, pomegranate", "Include Vitamin C with meals to boost iron absorption", "Eat lentils, kidney beans, chickpeas daily", "Avoid tea/coffee immediately after meals"],
+    "lifestyle": ["Get 7-8 hours sleep nightly", "Avoid intense exercise until hemoglobin improves", "Cook in cast iron cookware when possible"]
+  },
+  "diabetes_risk": {
+    "display_name": "High Blood Sugar / Diabetes Risk",
+    "diet": ["Avoid white rice, white bread, sugary drinks", "Eat high-fiber foods: oats, brown rice, whole wheat", "Include bitter gourd (karela) and fenugreek seeds", "Eat small meals every 3-4 hours"],
+    "lifestyle": ["Walk 30-45 minutes daily after meals", "Monitor blood sugar regularly", "Reduce stress with yoga or meditation"]
+  },
+  "prediabetes": {
+    "display_name": "Prediabetes (HbA1c Elevated)",
+    "diet": ["Follow low glycemic index diet strictly", "Avoid all sugary foods and maida products", "Eat fiber-rich foods with every meal"],
+    "lifestyle": ["Walk 45 minutes daily — this alone can reverse prediabetes", "Lose 5-7% body weight if overweight", "Monitor blood sugar monthly"]
+  },
+  "high_cholesterol": {
+    "display_name": "High Cholesterol",
+    "diet": ["Eat oats and barley daily for soluble fiber", "Include almonds, walnuts, flaxseeds", "Use olive oil instead of butter or ghee", "Avoid fried food and fast food"],
+    "lifestyle": ["Exercise 30 minutes daily", "Quit smoking — it lowers HDL", "Get cholesterol checked every 6 months"]
+  },
+  "low_hdl": {
+    "display_name": "Low HDL (Good Cholesterol)",
+    "diet": ["Eat olive oil, avocado, and nuts daily", "Include fatty fish: salmon, mackerel, sardines", "Avoid trans fats completely"],
+    "lifestyle": ["Exercise regularly — aerobic exercise raises HDL most effectively", "Quit smoking immediately"]
+  },
+  "high_triglycerides": {
+    "display_name": "High Triglycerides",
+    "diet": ["Cut sugar and refined carbs drastically", "Avoid alcohol completely", "Eat omega-3 rich foods: flaxseeds, walnuts, fatty fish"],
+    "lifestyle": ["Exercise 30 minutes daily", "Sleep 7-8 hours per night"]
+  },
+  "thyroid_high": {
+    "display_name": "High TSH (Hypothyroidism Risk)",
+    "diet": ["Eat selenium-rich foods: Brazil nuts, sunflower seeds, eggs", "Include iodine-rich foods: iodized salt, seafood", "Cook cruciferous vegetables — do not eat raw in excess"],
+    "lifestyle": ["Get TSH rechecked every 3-6 months", "Manage stress — cortisol disrupts thyroid hormones", "Exercise regularly — even light yoga helps"]
+  },
+  "thyroid_low": {
+    "display_name": "Low TSH (Hyperthyroidism Risk)",
+    "diet": ["Eat calcium-rich foods: dairy, leafy greens", "Include cruciferous vegetables: broccoli, cabbage"],
+    "lifestyle": ["Avoid stimulants: caffeine, energy drinks", "Consult an endocrinologist immediately"]
+  },
+  "vitamin_d_deficiency": {
+    "display_name": "Vitamin D Deficiency",
+    "diet": ["Eat fatty fish: salmon, tuna, mackerel", "Use Vitamin D fortified milk daily", "Take Vitamin D3 supplements as prescribed"],
+    "lifestyle": ["Get 15-20 minutes of morning sunlight daily", "Get levels rechecked after 3 months of supplementation"]
+  },
+  "vitamin_b12_deficiency": {
+    "display_name": "Vitamin B12 Deficiency",
+    "diet": ["Eat animal products: meat, fish, eggs, dairy", "Vegetarians: eat fortified cereals and nutritional yeast", "Include paneer, curd, and cheese daily"],
+    "lifestyle": ["Get B12 levels rechecked after 3 months", "Avoid excessive alcohol — it reduces B12 absorption"]
+  },
+  "high_creatinine": {
+    "display_name": "High Creatinine (Kidney Stress)",
+    "diet": ["Drink 8-10 glasses of water daily", "Reduce protein intake slightly — avoid excess red meat", "Limit sodium: avoid table salt and packaged foods"],
+    "lifestyle": ["Control blood pressure and blood sugar", "Get kidney function panel repeated in 4-6 weeks"]
+  },
+  "high_uric_acid": {
+    "display_name": "High Uric Acid (Gout Risk)",
+    "diet": ["Avoid red meat, organ meats, and shellfish", "Drink 8-10 glasses of water daily", "Eat cherries and strawberries — they reduce uric acid"],
+    "lifestyle": ["Maintain a healthy weight", "Get uric acid rechecked after 6-8 weeks of diet changes"]
+  },
+  "high_liver_enzymes": {
+    "display_name": "Elevated Liver Enzymes",
+    "diet": ["Avoid alcohol completely", "Eat liver-friendly foods: garlic, turmeric, green tea, beetroot", "Avoid fatty, fried, and processed foods"],
+    "lifestyle": ["Recheck liver function tests after 4-6 weeks", "Maintain a healthy weight"]
+  }
+}

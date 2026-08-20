@@ -1,0 +1,35 @@
+flask
+flask-cors
+pymupdf
+pdfplumber
+pytesseract
+pillow
+spacy
+scikit-learn
+xgboost
+pandas
+numpy
+langchain
+langchain-community
+faiss-cpu
+sentence-transformers
+python-dotenv
+reportlab
+
+# flask==3.0.3
+# flask-cors==4.0.1
+# pymupdf==1.24.5
+# pdfplumber==0.11.0
+# pytesseract==0.3.13
+# Pillow==10.3.0
+# spacy==3.7.5
+# scikit-learn==1.5.0
+# xgboost==2.0.3
+# pandas==2.2.2
+# numpy==1.26.4
+# langchain==0.2.5
+# langchain-community==0.2.5
+# faiss-cpu==1.8.0
+# sentence-transformers==3.0.1
+# python-dotenv==1.0.1
+# reportlab==4.2.2

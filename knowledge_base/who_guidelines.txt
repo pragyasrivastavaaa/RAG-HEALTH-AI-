@@ -1,0 +1,28 @@
+WHO AND CLINICAL LABORATORY REFERENCE GUIDELINES
+
+HEMOGLOBIN AND ANEMIA
+Normal hemoglobin range is 12.0-17.5 g/dL. Values below 12 g/dL indicate anemia. WHO classifies anemia as mild (10-11.9 g/dL), moderate (7-9.9 g/dL), and severe (below 7 g/dL). Iron deficiency anemia is the most common type worldwide. Anemia causes fatigue, weakness, shortness of breath, and reduced oxygen delivery to tissues. Treatment depends on the underlying cause and may include iron supplementation, dietary changes, or treatment of underlying disease.
+
+BLOOD GLUCOSE AND DIABETES
+Fasting blood glucose normal range is 70-100 mg/dL. Prediabetes is defined as fasting glucose 100-125 mg/dL. Diabetes is diagnosed when fasting glucose is 126 mg/dL or higher on two separate tests. Post-prandial glucose above 140 mg/dL at 2 hours indicates impaired glucose tolerance. HbA1c reflects average blood glucose over 3 months. Normal HbA1c is below 5.7%. Prediabetes is 5.7-6.4%. Diabetes is 6.5% or above. WHO recommends that HbA1c of 48 mmol/mol (6.5%) or above is diagnostic of diabetes.
+
+CHOLESTEROL AND CARDIOVASCULAR RISK
+Total cholesterol below 200 mg/dL is desirable. Borderline high is 200-239 mg/dL. High is 240 mg/dL and above. LDL cholesterol below 100 mg/dL is optimal. LDL 100-129 is near optimal. LDL 130-159 is borderline high. LDL 160-189 is high. LDL above 190 is very high. HDL cholesterol below 40 mg/dL is a major risk factor for heart disease. HDL above 60 mg/dL is protective. Triglycerides normal is below 150 mg/dL. Borderline high is 150-199. High is 200-499. Very high is 500 and above. High LDL and low HDL significantly increase risk of atherosclerosis, heart attack, and stroke.
+
+THYROID FUNCTION
+TSH normal range is 0.4-4.0 mIU/L. TSH above 4.0 suggests hypothyroidism where the thyroid is underactive. TSH below 0.4 suggests hyperthyroidism where the thyroid is overactive. Hypothyroidism symptoms include fatigue, weight gain, cold intolerance, dry skin, constipation, and depression. Hyperthyroidism symptoms include weight loss, rapid heartbeat, anxiety, tremors, and heat intolerance. Untreated hypothyroidism can lead to heart disease, nerve damage, and infertility. Untreated hyperthyroidism can cause bone loss and heart rhythm disorders.
+
+VITAMIN D
+Vitamin D levels below 20 ng/mL indicate deficiency. Levels 20-29 ng/mL indicate insufficiency. Optimal level is 30-100 ng/mL. Vitamin D is essential for calcium absorption, bone health, immune function, and muscle function. Deficiency causes rickets in children and osteomalacia in adults. Low vitamin D is associated with increased risk of fractures, cardiovascular disease, diabetes, and autoimmune conditions. Sunlight exposure is the primary source. Dietary sources include fatty fish, egg yolks, and fortified foods.
+
+VITAMIN B12
+Normal vitamin B12 level is 200-900 pg/mL. Below 200 pg/mL is considered deficient. B12 is essential for nerve function, red blood cell formation, and DNA synthesis. Deficiency causes megaloblastic anemia, peripheral neuropathy, cognitive impairment, and fatigue. Common in vegetarians, vegans, and elderly people. Metformin use can reduce B12 absorption. Treatment includes B12 injections or high-dose oral supplements.
+
+KIDNEY FUNCTION
+Normal serum creatinine is 0.6-1.2 mg/dL for adults. Elevated creatinine indicates reduced kidney filtration. Creatinine above 1.2 may indicate acute kidney injury or chronic kidney disease. Uric acid normal range is 2.4-6.0 mg/dL. Elevated uric acid above 6 mg/dL in women and 7 mg/dL in men can cause gout. Uric acid crystals deposit in joints causing sudden, severe pain particularly in the big toe. High uric acid also increases risk of kidney stones and kidney disease.
+
+LIVER FUNCTION
+SGPT (ALT) and SGOT (AST) are liver enzymes. Normal SGPT is 0-40 U/L. Normal SGOT is 0-40 U/L. Elevated liver enzymes indicate liver cell damage or inflammation. Common causes include fatty liver disease, viral hepatitis, alcohol, medications, and autoimmune liver disease. Mild elevation (1-3 times normal) may be monitored. Significant elevation (above 3 times normal) requires further investigation. Persistent elevation increases risk of cirrhosis and liver failure.
+
+COMPLETE BLOOD COUNT
+Normal WBC is 4000-11000 cells/µL. Low WBC indicates immunosuppression. High WBC suggests infection or inflammation. Normal RBC is 4.2-5.9 million/µL. Low RBC contributes to anemia. Normal platelets are 150000-400000 cells/µL. Low platelets increase bleeding risk. High platelets increase clotting risk.

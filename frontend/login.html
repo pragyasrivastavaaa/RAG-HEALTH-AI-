@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>RAG Health AI — Login</title>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+body{display:flex;align-items:center;justify-content:center;min-height:100vh}
+.auth-box{width:100%;max-width:420px;padding:2rem}
+.auth-logo{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--accent);text-align:center;margin-bottom:0.3rem}
+.auth-sub{text-align:center;color:var(--text2);font-size:0.85rem;margin-bottom:2rem}
+.form-group{margin-bottom:1.1rem}
+label{display:block;font-size:0.82rem;font-weight:500;color:var(--text2);margin-bottom:6px}
+input[type=email],input[type=password],input[type=text]{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--rsm);padding:0.75rem 1rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
+input:focus{border-color:var(--accent)}
+.btn-block{width:100%;justify-content:center;padding:0.85rem;font-size:0.95rem;margin-top:0.5rem}
+.auth-footer{text-align:center;margin-top:1.25rem;font-size:0.83rem;color:var(--text2)}
+.auth-footer a{color:var(--accent);text-decoration:none;font-weight:500}
+.error-msg{background:rgba(255,77,109,0.1);border:1px solid rgba(255,77,109,0.25);border-radius:var(--rsm);padding:0.65rem 1rem;font-size:0.83rem;color:var(--red);margin-bottom:1rem;display:none}
+</style>
+</head>
+<body>
+<div class="auth-box card fade-up">
+  <div class="auth-logo">⬡ RAG Health AI</div>
+  <div class="auth-sub">Sign in to your personalised health dashboard</div>
+  <div class="error-msg" id="errorMsg"></div>
+  <div class="form-group"><label>Email address</label><input type="email" id="email" placeholder="you@example.com"/></div>
+  <div class="form-group"><label>Password</label><input type="password" id="password" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()"/></div>
+  <button class="btn btn-primary btn-block" id="loginBtn" onclick="doLogin()"><span id="btnText">Sign in</span></button>
+  <div class="auth-footer">Don't have an account? <a href="register.html">Create one</a></div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="js/auth.js"></script>
+<script>
+if(getToken())window.location.href='dashboard.html';
+async function doLogin(){
+  const email=document.getElementById('email').value.trim(),password=document.getElementById('password').value;
+  const btn=document.getElementById('loginBtn'),btnText=document.getElementById('btnText'),err=document.getElementById('errorMsg');
+  if(!email||!password){err.textContent='Please enter email and password.';err.style.display='block';return;}
+  btn.disabled=true;btnText.innerHTML='<span class="spinner"></span>';
+  try{
+    const res=await fetch(API+'/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})});
+    const data=await res.json();
+    if(res.ok){setSession(data.token,data.user);window.location.href='dashboard.html';}
+    else{err.textContent=data.error||'Login failed';err.style.display='block';btn.disabled=false;btnText.textContent='Sign in';}
+  }catch(e){err.textContent='Cannot connect to server. Make sure Flask is running on port 5000.';err.style.display='block';btn.disabled=false;btnText.textContent='Sign in';}
+}
+</script>
+</body>
+</html>

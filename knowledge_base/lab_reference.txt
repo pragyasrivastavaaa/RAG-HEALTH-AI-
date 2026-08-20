@@ -1,0 +1,28 @@
+LAB PARAMETER REFERENCE GUIDE
+
+HEMOGLOBIN
+Hemoglobin is the protein in red blood cells that carries oxygen. Low hemoglobin means less oxygen reaches body tissues causing fatigue and weakness. Normal range is 12.0-17.5 g/dL depending on age and gender.
+
+GLUCOSE
+Blood glucose is the amount of sugar in the blood. Fasting glucose is measured after 8 hours without eating. Normal fasting glucose is 70-100 mg/dL. Post-prandial glucose is measured 2 hours after a meal and should be below 140 mg/dL.
+
+CHOLESTEROL
+Cholesterol is a fatty substance in the blood. LDL is bad cholesterol that builds up in arteries. HDL is good cholesterol that removes LDL from arteries. Total cholesterol should be below 200 mg/dL. LDL should be below 100 mg/dL. HDL should be above 40 mg/dL.
+
+TRIGLYCERIDES
+Triglycerides are fats in the blood derived mainly from food. High triglycerides increase cardiovascular risk. Normal is below 150 mg/dL. High triglycerides are often caused by excess sugar, refined carbs, and alcohol.
+
+TSH
+TSH is produced by the pituitary gland to control thyroid hormone production. High TSH means the thyroid is underactive (hypothyroidism). Low TSH means the thyroid is overactive (hyperthyroidism). Normal TSH is 0.4-4.0 mIU/L.
+
+CREATININE
+Creatinine is a waste product filtered by the kidneys. High creatinine indicates reduced kidney function. Normal range is 0.6-1.2 mg/dL. Elevated levels require monitoring kidney health.
+
+URIC ACID
+Uric acid is produced when the body breaks down purines from food. High uric acid causes gout where crystals deposit in joints causing severe pain. Normal range is 2.4-6.0 mg/dL.
+
+LIVER ENZYMES
+SGPT and SGOT are enzymes released when liver cells are damaged. Elevated levels indicate liver inflammation or injury. Normal SGPT is 0-40 U/L. Normal SGOT is 0-40 U/L.
+
+VITAMINS
+Vitamin D is essential for bone health and immunity. Normal level is 30-100 ng/mL. Deficiency is very common especially in people with low sun exposure. Vitamin B12 is essential for nerve function and red blood cells. Normal level is 200-900 pg/mL. Deficiency is common in vegetarians and elderly people.

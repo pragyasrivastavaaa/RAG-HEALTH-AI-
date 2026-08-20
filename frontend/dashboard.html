@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>RAG Health AI — Dashboard</title>
+<link rel="stylesheet" href="css/style.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+.greeting-bar{background:linear-gradient(135deg,rgba(0,212,170,0.07),rgba(0,153,255,0.07));border:1px solid rgba(0,212,170,0.18);border-radius:var(--radius);padding:1.4rem 1.8rem;margin-bottom:1.8rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.greeting-hi{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:0.2rem}
+.greeting-hi span{color:var(--accent)}
+.greeting-sub{color:var(--text2);font-size:0.86rem}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.8rem}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;text-align:center;transition:all 0.2s}
+.stat-card:hover{transform:translateY(-2px);border-color:var(--border2)}
+.stat-value{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:800;line-height:1;margin-bottom:0.2rem}
+.stat-label{font-size:0.75rem;color:var(--text2)}
+.score-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;display:flex;align-items:center;gap:2rem;margin-bottom:1.8rem;flex-wrap:wrap}
+.score-ring{position:relative;flex-shrink:0}
+.score-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.score-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;line-height:1}
+.score-outof{font-size:0.72rem;color:var(--text2)}
+.score-info{flex:1;min-width:180px}
+.score-title{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:0.35rem}
+.score-desc{color:var(--text2);font-size:0.87rem;line-height:1.6}
+.rag-box{background:rgba(0,153,255,0.06);border:1px solid rgba(0,153,255,0.18);border-radius:var(--rsm);padding:1rem 1.2rem;margin-top:1rem;font-size:0.84rem;line-height:1.65}
+.rag-box-title{font-weight:600;color:var(--accent2);margin-bottom:0.4rem;font-size:0.8rem;letter-spacing:0.05em;text-transform:uppercase}
+.rag-sources{margin-top:0.5rem;display:flex;gap:6px;flex-wrap:wrap}
+.rag-source-pill{background:rgba(0,153,255,0.1);border:1px solid rgba(0,153,255,0.2);border-radius:10px;padding:2px 8px;font-size:0.7rem;color:var(--accent2)}
+.card-title{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;margin-bottom:1.1rem}
+.chart-wrap{height:240px;position:relative}
+.findings-list{display:flex;flex-direction:column}
+.finding-row{display:flex;align-items:center;gap:1rem;padding:0.75rem 0;border-bottom:1px solid var(--border);transition:all 0.15s}
+.finding-row:last-child{border-bottom:none}
+.finding-row:hover{background:rgba(255,255,255,0.02);border-radius:7px;padding:0.75rem 0.5rem}
+.finding-name{flex:1;font-size:0.86rem;font-weight:500}
+.finding-val{font-size:0.86rem;color:var(--text2);min-width:90px;text-align:right}
+.finding-bar-wrap{width:90px}
+.finding-bar-bg{height:3px;background:var(--bg3);border-radius:2px;overflow:hidden}
+.finding-bar-fill{height:100%;border-radius:2px;transition:width 1s ease}
+.bar-n{background:var(--green)}.bar-h{background:var(--red)}.bar-l{background:var(--warn)}
+.diet-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.diet-col-title{font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.65rem}
+.tip-item{display:flex;gap:8px;padding:0.62rem 0;border-bottom:1px solid var(--border);font-size:0.83rem;line-height:1.5}
+.tip-item:last-child{border-bottom:none}
+.tip-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:7px}
+.td{background:var(--accent)}.tl{background:var(--accent2)}
+.chat-fab{position:fixed;bottom:2rem;right:2rem;background:var(--accent);color:#000;border:none;border-radius:50px;padding:0.85rem 1.4rem;font-family:'Syne',sans-serif;font-weight:700;font-size:0.88rem;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 24px rgba(0,212,170,0.35);transition:all 0.2s;z-index:50}
+.chat-fab:hover{transform:translateY(-2px)}
+.chat-panel{position:fixed;bottom:5.2rem;right:2rem;width:350px;max-height:480px;background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;display:none;flex-direction:column;box-shadow:var(--shadow);z-index:50}
+.chat-panel.open{display:flex;animation:fadeUp 0.25s ease}
+.chat-head{padding:0.9rem 1.1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg2)}
+.chat-head-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem}
+.chat-head-sub{font-size:0.72rem;color:var(--accent)}
+.chat-close{background:none;border:none;color:var(--text2);cursor:pointer;font-size:1.1rem;transition:color 0.2s}
+.chat-close:hover{color:var(--text)}
+.chat-msgs{flex:1;overflow-y:auto;padding:0.9rem;display:flex;flex-direction:column;gap:0.65rem}
+.msg{max-width:86%;padding:0.6rem 0.85rem;border-radius:11px;font-size:0.82rem;line-height:1.5;animation:fadeUp 0.2s ease}
+.msg-bot{background:var(--bg3);color:var(--text);align-self:flex-start;border-bottom-left-radius:3px}
+.msg-user{background:rgba(0,212,170,0.13);color:var(--text);align-self:flex-end;border-bottom-right-radius:3px;border:1px solid rgba(0,212,170,0.18)}
+.chat-chips{padding:0 0.9rem 0.65rem;display:flex;flex-wrap:wrap;gap:5px}
+.chip{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:3px 9px;font-size:0.72rem;color:var(--text2);cursor:pointer;transition:all 0.2s}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chat-input-row{padding:0.65rem 0.9rem;border-top:1px solid var(--border);display:flex;gap:7px;background:var(--bg2)}
+.chat-input{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:7px;padding:0.55rem 0.85rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.82rem;outline:none;transition:border-color 0.2s}
+.chat-input:focus{border-color:var(--accent)}
+.chat-send{background:var(--accent);color:#000;border:none;border-radius:7px;padding:0.55rem 0.9rem;font-weight:700;cursor:pointer;font-size:0.82rem;transition:background 0.2s}
+.chat-send:hover{background:#00f0c0}
+.chat-send:disabled{opacity:0.5;cursor:not-allowed}
+.no-data{text-align:center;padding:4rem 2rem;color:var(--text2)}
+.no-data h2{font-family:'Syne',sans-serif;margin-bottom:0.5rem}
+@media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr)}.score-card{flex-direction:column;text-align:center}.diet-grid{grid-template-columns:1fr}.finding-bar-wrap{display:none}.chat-panel{width:calc(100vw - 2rem);right:1rem}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><span class="nav-dot"></span>RAG Health AI</a>
+  <div class="nav-links"><a href="index.html">Upload</a><a href="dashboard.html" class="active">Dashboard</a><a href="history.html">History</a><a href="trends.html">Trends</a></div>
+  <div class="nav-user" id="navUser" style="display:none"><span id="navUserName"></span><button class="btn btn-danger" style="padding:4px 12px;font-size:0.78rem" onclick="logout()">Logout</button></div>
+</nav>
+<main>
+  <div class="no-data" id="noData" style="display:none"><h2>No report data found</h2><p style="margin-bottom:1.2rem">Upload a report first.</p><a href="index.html" class="btn btn-primary">Upload Report</a></div>
+  <div id="dashContent" style="display:none">
+    <div class="disclaimer fade-up">⚠ For informational purposes only. Always consult a qualified doctor.</div>
+    <div class="greeting-bar fade-up">
+      <div><div class="greeting-hi" id="greetHi">Hello! 👋</div><div class="greeting-sub" id="greetSub">Here is your health analysis.</div></div>
+      <div style="display:flex;gap:8px"><a href="index.html" class="btn btn-secondary" style="padding:0.5rem 0.9rem;font-size:0.8rem">New Report</a><a href="trends.html" class="btn btn-secondary" style="padding:0.5rem 0.9rem;font-size:0.8rem">View Trends</a></div>
+    </div>
+    <div class="stats-grid fade-up fade-up-1">
+      <div class="stat-card"><div class="stat-value" id="stScore" style="color:var(--accent)">—</div><div class="stat-label">Health Score</div></div>
+      <div class="stat-card"><div class="stat-value" id="stParams" style="color:var(--accent2)">—</div><div class="stat-label">Parameters</div></div>
+      <div class="stat-card"><div class="stat-value" id="stAbnormal" style="color:var(--warn)">—</div><div class="stat-label">Abnormal</div></div>
+      <div class="stat-card"><div class="stat-value" id="stConds" style="color:var(--red)">—</div><div class="stat-label">Conditions</div></div>
+    </div>
+    <div class="score-card fade-up fade-up-2">
+      <div class="score-ring"><canvas id="scoreChart" width="130" height="130"></canvas><div class="score-center"><div class="score-num" id="scoreNum">—</div><div class="score-outof">/ 100</div></div></div>
+      <div class="score-info">
+        <div class="score-title" id="scoreTitle"></div><div class="score-desc" id="scoreDesc"></div>
+        <div class="rag-box" id="ragBox" style="display:none"><div class="rag-box-title">🧠 RAG Analysis — grounded in WHO guidelines</div><div id="ragText"></div><div class="rag-sources" id="ragSources"></div></div>
+      </div>
+    </div>
+    <div class="card fade-up fade-up-3" style="margin-bottom:1.8rem"><div class="card-title">Lab Values vs Normal Range</div><div class="chart-wrap"><canvas id="labChart"></canvas></div></div>
+    <div class="card fade-up fade-up-3" style="margin-bottom:1.8rem"><div class="card-title">Detailed Findings</div><div class="findings-list" id="findingsList"></div></div>
+    <div class="fade-up fade-up-4" style="margin-bottom:6rem">
+      <div class="section-label">Personalised Plan</div><div class="section-title" style="margin-bottom:1rem">Diet & Lifestyle Recommendations</div>
+      <div class="card"><div class="diet-grid"><div><div class="diet-col-title">🥗 Diet</div><div id="dietList"></div></div><div><div class="diet-col-title">🏃 Lifestyle</div><div id="lifeList"></div></div></div></div>
+    </div>
+  </div>
+</main>
+<button class="chat-fab" id="chatFab" style="display:none" onclick="toggleChat()">💬 Ask AI</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head"><div><div class="chat-head-title">Health AI Assistant</div><div class="chat-head-sub">RAG-powered — WHO guidelines</div></div><button class="chat-close" onclick="toggleChat()">✕</button></div>
+  <div class="chat-msgs" id="chatMsgs"></div>
+  <div class="chat-chips" id="chatChips"></div>
+  <div class="chat-input-row"><input class="chat-input" id="chatInput" placeholder="Ask about your report..." onkeydown="if(event.key==='Enter')sendMsg()"/><button class="chat-send" id="chatSend" onclick="sendMsg()">Send</button></div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="js/auth.js"></script>
+<script>renderNavUser();</script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
